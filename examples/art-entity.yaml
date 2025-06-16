@@ -1,0 +1,40 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: artist-web
+  description: The place to be, for great artists
+  tags:
+    - javascript
+  links:
+    - url: https://www.vangoghmuseum.nl/en/art-and-stories/art/vincent-van-gogh
+      title: Van Gogh Digital Gallery
+spec:
+  type: website
+  lifecycle: production
+  owner: guests
+  providesApis: 
+    - artist-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: artist-api
+  description: Retrieve artist details
+spec:
+  type: openapi
+  lifecycle: production
+  owner: guests
+  apiprovidedBy: artist-web
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.0
+      title: Artist API
+      license:
+        name: MIT
+    servers:
+      - url: http://artist.spotify.net/v1
+    paths:
+      /artists:
+        get:
+          summary: List all artists
