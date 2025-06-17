@@ -10,3 +10,4 @@ paths:
   /artists:
     get:
       summary: List all artists
+...

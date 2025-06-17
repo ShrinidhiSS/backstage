@@ -25,16 +25,5 @@ spec:
   lifecycle: production
   owner: guests
   apiprovidedBy: artist-web
-  definition: |
-    openapi: "3.0.0"
-    info:
-      version: 1.0.0
-      title: Artist API
-      license:
-        name: MIT
-    servers:
-      - url: http://artist.spotify.net/v1
-    paths:
-      /artists:
-        get:
-          summary: List all artists
+  definition: 
+    $text: https://raw.githubusercontent.com/ShrinidhiSS/backstage/master/examples/openapi/art-web-spec.yaml
