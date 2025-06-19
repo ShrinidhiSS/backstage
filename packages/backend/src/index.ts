@@ -5,6 +5,15 @@
  *
  * Happy hacking!
  */
+import dotenv from 'dotenv';
+dotenv.config();
+import path from 'path';
+import fs from 'fs';
+
+console.log("✅ CWD:", process.cwd());
+console.log("✅ .env Exists:", fs.existsSync(path.resolve(process.cwd(), '.env')));
+console.log("✅ Token in env:", process.env.GITHUB_TOKEN);
+
 
 import { createBackend } from '@backstage/backend-defaults';
 
@@ -25,6 +34,7 @@ backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
 // catalog plugin
 backend.add(import('@backstage/plugin-catalog-backend'));
 backend.add(import('@backstage/plugin-catalog-backend-module-github'));
+backend.add(import('@backstage/plugin-catalog-backend-module-github-org'));
 
 backend.add(
   import('@backstage/plugin-catalog-backend-module-scaffolder-entity-model'),

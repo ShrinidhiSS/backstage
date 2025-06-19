@@ -77,6 +77,14 @@ scaffolder:
 
 catalog:
   providers:
+    githubOrg:
+      - id: github
+        githubUrl: https://github.com
+        orgs: ['Greehaas']
+        schedule:  
+          initialDelay: {seconds: 30}
+          frequency: {hours: 1}
+          timeout: {minutes: 50}
     github:
       shrinidhiAccount:
         organization: 'ShrinidhiSS'
