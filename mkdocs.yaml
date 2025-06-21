@@ -1,0 +1,13 @@
+# mkdocs can be in a project root directory
+
+site_name: 'example-docs'
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API Reference: api.md
+# docs_dir: documentation
+theme:
+  name: material
+plugins:
+  - techdocs-core
